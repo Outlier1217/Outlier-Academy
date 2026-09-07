@@ -112,6 +112,63 @@ Diagrams built on top of that engine:
 Every one of the 13 diagrams has its own numeric input(s) and
 recomputes and redraws live as you type.
 
+### 7. Fullscreen viewing (applies to every diagram)
+`components/FullscreenPanel.tsx`
+
+- A small expand icon sits on every diagram's canvas. Clicking it
+  expands that same canvas to fill the whole screen; Esc or the icon
+  again collapses it back.
+- The canvas is never unmounted during this - only the wrapping
+  div's CSS classes change - so the camera angle and everything
+  drawn stays exactly where it was.
+- Wired once into `SimulatorCard.tsx` and once into
+  `FunctionSimulator3D.tsx`, which is why it works across every
+  diagram in every chapter without having to touch each one
+  individually.
+
+### 8. Chapter: Graph of a Quadratic Polynomial
+`app/math/class-11/quadratic-polynomials/page.tsx`
+
+- **`lib/quadraticMath.ts`** - pure math helpers: `evaluate`,
+  `discriminant`, `vertex`, `realRoots`, `sumOfRoots`,
+  `productOfRoots`.
+- **`components/quadratic/QuadraticScene.tsx`** - the 3D rendering
+  engine for parabolas: draws the curve, optional point markers
+  (vertex, roots, y-intercept), an optional dashed vertical line
+  (axis of symmetry), and optional colored segments along the
+  x-axis (for showing where the polynomial is positive vs negative).
+- **`components/quadratic/QuadraticDiagram3D.tsx`** - 6 variants,
+  picked via a `variant` prop, all sharing the same a/b/c input:
+  1. **Shape** - opens up or down depending on the sign of a
+  2. **Vertex and axis of symmetry** - the turning point, marked
+     with a dashed line through it
+  3. **Roots (zeroes)** - via the discriminant D = b² - 4ac: two
+     real roots, one repeated root, or none at all
+  4. **y-intercept** - the point (0, c), read straight off the
+     equation
+  5. **Sum and product of roots** - checked against −b/a and c/a;
+     when the roots are complex instead of real, this diagram notes
+     that the formulas still hold even though nothing real plots
+  6. **Sign analysis** - which stretches of the x-axis the
+     polynomial is positive on and which it's negative on, split at
+     the roots
+
+  Same domain-guard pattern as the function simulators: typing
+  a = 0 shows an error explaining that it's no longer a quadratic.
+
+## Project structure (updated)
+
+```
+components/
+  FullscreenPanel.tsx                            → fullscreen toggle, used by SimulatorCard and FunctionSimulator3D
+  quadratic/
+    QuadraticScene.tsx                            → reusable 3D parabola renderer
+    QuadraticDiagram3D.tsx                         → 6 quadratic polynomial variants
+
+lib/
+  quadraticMath.ts                                → quadratic polynomial math helpers
+```
+
 ---
 
 ## Project structure
