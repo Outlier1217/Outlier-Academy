@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import FullscreenPanel from "@/components/FullscreenPanel";
 
 export default function SimulatorCard({
   title,
@@ -24,9 +25,9 @@ export default function SimulatorCard({
       {note && <p className="mt-2 text-sm text-muted">{note}</p>}
 
       <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_260px]">
-        <div className="h-72 overflow-hidden rounded-md border border-border/70 bg-ink sm:h-80">
+        <FullscreenPanel className="h-72 overflow-hidden rounded-md border border-border/70 bg-ink sm:h-80">
           {scene}
-        </div>
+        </FullscreenPanel>
         <div className="flex flex-col gap-3">{sidebar}</div>
       </div>
     </div>

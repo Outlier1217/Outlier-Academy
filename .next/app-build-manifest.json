@@ -26,10 +26,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/math/class-11/relations-and-functions/page.js"
     ],
-    "/math/class-11/complex-numbers/page": [
+    "/math/class-11/quadratic-polynomials/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/math/class-11/complex-numbers/page.js"
+      "static/chunks/app/math/class-11/quadratic-polynomials/page.js"
     ]
   }
 }

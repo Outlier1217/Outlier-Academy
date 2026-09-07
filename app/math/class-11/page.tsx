@@ -16,6 +16,12 @@ const CHAPTERS = [
   live: true,
   blurb: "Argand diagrams and polar form, with every diagram driven by numbers you type in.",
 },
+{
+  name: "Graph of a Quadratic Polynomial",
+  href: "/math/class-11/quadratic-polynomials",
+  live: true,
+  blurb: "Shape, vertex, roots and sign — six diagrams driven by your own a, b, c.",
+},
   { name: "Linear Inequalities", href: "#", live: false, blurb: "" },
   { name: "Permutations and Combinations", href: "#", live: false, blurb: "" },
   { name: "Sequences and Series", href: "#", live: false, blurb: "" },

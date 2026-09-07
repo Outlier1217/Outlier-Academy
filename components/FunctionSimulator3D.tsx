@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Line, OrbitControls, Text } from "@react-three/drei";
 import * as THREE from "three";
+import FullscreenPanel from "@/components/FullscreenPanel";
 
 export type FunctionSimulatorProps = {
   title: string;
@@ -190,18 +191,20 @@ export default function FunctionSimulator3D({
 
       <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_260px]">
         <div className="h-72 overflow-hidden rounded-md border border-border/70 bg-ink sm:h-80">
-          <Canvas camera={{ position: [xMax * 0.9, yMax * 0.9, 8], fov: 45 }}>
-            <Scene
-              segments={segments}
-              point={{ x: isNumber ? x : 0, y, valid }}
-              accent={accent}
-              xMin={xMin}
-              xMax={xMax}
-              yMin={yMin}
-              yMax={yMax}
-              showHorizontalLineTest={showHorizontalLineTest}
-            />
-          </Canvas>
+<FullscreenPanel className="h-72 overflow-hidden rounded-md border border-border/70 bg-ink sm:h-80">
+  <Canvas camera={{ position: [xMax * 0.9, yMax * 0.9, 8], fov: 45 }}>
+    <Scene
+      segments={segments}
+      point={{ x: isNumber ? x : 0, y, valid }}
+      accent={accent}
+      xMin={xMin}
+      xMax={xMax}
+      yMin={yMin}
+      yMax={yMax}
+      showHorizontalLineTest={showHorizontalLineTest}
+    />
+  </Canvas>
+</FullscreenPanel>
         </div>
 
         <div className="flex flex-col gap-3">
