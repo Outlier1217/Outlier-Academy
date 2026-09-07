@@ -10,7 +10,12 @@ const CHAPTERS = [
     blurb: "One-one, onto and bijective mappings — as a machine you feed numbers into.",
   },
   { name: "Trigonometric Functions", href: "#", live: false, blurb: "" },
-  { name: "Complex Numbers", href: "#", live: false, blurb: "" },
+  {
+  name: "Complex Numbers",
+  href: "/math/class-11/complex-numbers",
+  live: true,
+  blurb: "Argand diagrams and polar form, with every diagram driven by numbers you type in.",
+},
   { name: "Linear Inequalities", href: "#", live: false, blurb: "" },
   { name: "Permutations and Combinations", href: "#", live: false, blurb: "" },
   { name: "Sequences and Series", href: "#", live: false, blurb: "" },
